@@ -7,6 +7,9 @@ Installed-Size: 36
 Filename: ./debs/1.0-3.deb
 Size: 3600
 MD5sum: 002d6f3fcd79c8bfbd701ccc648dd26448e7c17f
+SHA1: 986f8a4c07c63d9685b7fc61644đa220566438c
+SHA256: 3c99db2ec79f728826536bd55d2902c03c46ac995909c02b80c2fd5e9e8e812e
+SHA512: 01b13ae096a24a09daed98fea7bb695ff1e25a997358ed657b8c4e19614f848e7255059894c763b363474b58f00a94e346e143d5a6d301662da88bdcac3057b9
 Description: Vcam iOS (Rootless)
 tag: role::developer
 Name: Vcam iOS (Rootless)
