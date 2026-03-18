@@ -1,0 +1,13 @@
+Package: com.yourepo.pewpew.vcamaudiorootless_1.0-3_iphoneos-arm64
+Architecture: iphoneos-arm64
+Version: 1.0-3
+Section: System
+Maintainer: Little34306
+Installed-Size: 36
+Filename: ./debs/1.0-3.deb
+Size: 3600
+MD5sum: 002d6f3fcd79c8bfbd701ccc648dd26448e7c17f
+Description: Vcam iOS (Rootless)
+tag: role::developer
+Name: Vcam iOS (Rootless)
+Author: Little34306
