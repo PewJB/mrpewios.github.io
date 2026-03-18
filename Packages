@@ -1,0 +1,14 @@
+Package: com.yourepo.pewpew.vcamaudiorootless
+Version: 1.0-3
+Architecture: iphoneos-arm64
+Filename: ./debs/com.yourepo.pewpew.vcamaudiorootless_1.0-3_iphoneos-arm64.deb
+Size: 3600
+MD5sum: d189b659a4c0ffa04b74c14aafc135f5
+Décription: Description: Vcam - Tweak chèn video vào app camera gốc
+Tính năng:
+- Chèn video trực tiếp vào camera
+- Tương thích từ iOS 14.0 - 16.6.1 
+- Hỗ trợ rootless,roothide,rootfull
+Name: Vcam iOS (Rootless)
+Author:Little34306
+Section: Tweaks
