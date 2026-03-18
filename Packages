@@ -1,7 +1,7 @@
-Package: com.yourepo.pewpew.vcamaudiorootless
+Package: VcamiOS (Rootless)
 Version: 1.0-3
 Architecture: iphoneos-arm64
-Filename: ./debs/com.yourepo.pewpew.vcamaudiorootless_1.0-3_iphoneos-arm64.deb
+Filename: ./debs/VcamiOS (Rootless).deb
 Size: 3600
 MD5sum: d189b659a4c0ffa04b74c14aafc135f5
 Décription: Vcam - Tweak chèn video vào camera gốc
