@@ -1,0 +1,24 @@
+Package: com.yourepo.pewpew.vcamaudiorootless
+Version: 1.0-3
+Architecture: iphoneos-arm64
+Filename: ./debs/com.yourepo.pewpew.vcamaudiorootless_1.0-3_iphoneos-arm64.deb
+Size: 3600
+MD5sum: d189b659a4c0ffa04b74c14aafc135f5
+Décription: Vcam - Tweak chèn video vào camera gốc
+ Cho phép bạn chèn video từ thư viện vào khung hình camera
+ như thể bạn đang quay video thật.
+ .
+ Tính năng chính:
+   • Chèn video vào camera mặc định
+   • Hỗ trợ iOS 14.0 - 16.6.1 (rootless,roothide,rootful)
+   • Tương thích Dopamine
+   • Dễ dàng chọn video từ thư viện
+ .
+ Hướng dẫn:
+   1. Cài đặt tweak và SpringBoard 
+   2. Nhấn + - → Chọn Select Video
+   3. Chọn video muốn chèn
+   4. Mở camera và tận hưởng video mà bạn lựa chọn 
+Name: Vcam iOS (Rootless)
+Author:Little34306
+Section: Tweaks
