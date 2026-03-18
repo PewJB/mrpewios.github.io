@@ -10,7 +10,7 @@
 "class":"DepictionScreenshotsView",
 "screenshots":[
 {
-"url":"https://mrpewios.github.io/infodeb/Vvam (Screenshots)/1.png",
+"url":"https://mrpewios.github.io/1.png",
 "accessibilityText":"Screenshot"
 },
 {
@@ -138,7 +138,7 @@
 },
 {
 "class":"DepictionLabelView",
-"text":"Copyright © 2025 - 2030 by JTISVN",
+"text":"Copyright © 2026 - 2030 by MrPewiOS",
 "textColor":"#999999",
 "fontSize":"10.0",
 "alignment":1
