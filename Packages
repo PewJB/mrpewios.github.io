@@ -32,7 +32,7 @@ Author: Little34306
 Package: com.yourepo.pewrepo.cydiainstaller_1.1.36-4_iphoneos-arm64
 Architecture: iphoneos-arm64
 Version: 1.1.36-4
-Section: Tweak
+Section: System
 Maintainer: Jay Freeman
 Installed-Size: 1258291
 Filename: ./debs/com.yourepo.pewrepo.cydiainstaller_1.1.36-4_iphoneos-arm64.deb
