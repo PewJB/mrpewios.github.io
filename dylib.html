@@ -1,726 +1,147 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MrPewiOS Repo👑 - Thư viện Dylib</title>
-    
-    <meta name="google-site-verification" content="UvCQ1cyCw8prMQgwGKNOLe_ChzDAtR7Kz05jAvuxrQQ" />
-    <meta name="description" content="MrPewiOS Repo Library - Kho lưu trữ Dylib, Deb Việt hóa và Mod ứng dụng cho iOS.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kho Dylib 👾</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="icon" href="https://mrpewios.github.io/avatar.webp" type="image/x-icon">
-    
-    <script>
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 
-    <style>
-        html { background-color: #f3f4f6; } /* Màu sáng */
-        html.dark { background-color: #0B0B15; } /* Màu tối */
-        
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 10px; }
-    </style>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Nunito', 'sans-serif'] },
-                    colors: {
-                        'dark-bg': '#0B0B15',
-                        zinc: { 850: '#1f1f22' }
-                    },
-                    animation: {
-                        'fade-down': 'fadeDown 0.8s ease-out',
-                        'fade-up': 'fadeUp 0.8s ease-out 0.1s backwards',
-                        'blob': 'blob 7s infinite',
-                        'gradient-text': 'gradient-text 6s linear infinite',
-                    },
-                    keyframes: {
-                        fadeDown: { '0%': { opacity: '0', transform: 'translateY(-20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
-                        fadeUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' }
-                        },
-                        'gradient-text': {
-                            '0%': { 'background-position': '0% 50%' },
-                            '100%': { 'background-position': '300% 50%' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+<style>
+body {
+    font-family: 'Nunito', sans-serif;
+}
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    transition: 0.3s;
+}
+</style>
 </head>
 
-<body class="font-sans antialiased min-h-screen relative transition-colors duration-300 bg-gray-100 text-gray-900 dark:bg-dark-bg dark:text-white selection:bg-cyan-500 selection:text-white">
+<body class="bg-[#0B0B15] text-white">
 
-    <div class="fixed inset-0 z-[-1] hidden dark:block pointer-events-none">
-        <div class="absolute top-0 left-[-10%] w-[500px] h-[500px] bg-purple-600/20 rounded-full mix-blend-screen filter blur-[100px] opacity-50 animate-blob transform-gpu"></div>
-        <div class="absolute top-[20%] right-[-10%] w-[400px] h-[400px] bg-pink-600/20 rounded-full mix-blend-screen filter blur-[100px] opacity-50 animate-blob animation-delay-2000 transform-gpu"></div>
-        <div class="absolute bottom-[-10%] left-[20%] w-[600px] h-[600px] bg-blue-600/10 rounded-full mix-blend-screen filter blur-[100px] opacity-30 animate-blob animation-delay-4000 transform-gpu"></div>
+<div class="max-w-3xl mx-auto p-4">
+
+    <!-- HEADER -->
+    <div class="text-center mt-8 mb-6">
+        <h1 class="text-3xl font-extrabold">👾 Kho Dylib</h1>
+        <p class="text-gray-400 text-sm mt-2">Tổng hợp Dylib free cho iOS</p>
     </div>
 
-    <div class="fixed inset-0 z-[-2] bg-white/50 dark:hidden pointer-events-none"></div>
+    <!-- LIST -->
+    <div class="space-y-4">
 
-    <div id="copy-toast" class="fixed top-5 left-0 right-0 mx-auto w-max opacity-0 transition-opacity duration-300 z-50 pointer-events-none">
-        <div class="bg-white/10 backdrop-blur-md border border-white/10 text-white px-4 py-2 rounded-full shadow-2xl font-semibold flex items-center gap-2 text-sm dark:bg-white/10 dark:text-white bg-white text-green-600 border-gray-200">
-            <i class="fa-solid fa-check"></i> Đã sao chép!
+        <!-- ITEM -->
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between card">
+
+            <div>
+                <h2 class="font-bold">VibeTok</h2>
+                <p class="text-sm text-gray-400">Không QC,tải story,xem ẩn danh</p>
+            </div>
+
+            <a href="https://www.mediafire.com/file/vpzq0a3xyt73uhw/VibeTok.zip/file"
+class="px-4 py-1.5 rounded-full text-sm font-bold
+bg-blue-500 text-white
+hover:bg-blue-600
+active:scale-90
+transition-all duration-150 shadow-md">
+
+GET
+</a>
+
         </div>
+
+        <!-- ITEM -->
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between card">
+
+            <div>
+                <h2 class="font-bold">YouTube Plus</h2>
+                <p class="text-sm text-gray-400">Không quảng cáo, chạy nền,PiP,tải video chất lượng cao</p>
+            </div>
+
+            <a href="https://www.mediafire.com/file/venbd3qlylhzoln/%E3%80%8C11.05%E3%80%8DYouTube_TrollFools.zip/file"
+class="px-4 py-1.5 rounded-full text-sm font-bold
+bg-blue-500 text-white
+hover:bg-blue-600
+active:scale-90
+transition-all duration-150 shadow-md">
+
+GET
+</a>
+
+        </div>
+
+        <!-- ITEM -->
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between card">
+
+            <div>
+                <h2 class="font-bold">Facebook No Ads</h2>
+                <p class="text-sm text-gray-400">Ẩn qc,xem ẩn danh,tải story.Tiêm bằng Trollfools</p>
+            </div>
+
+            <a href="#"
+class="px-4 py-1.5 rounded-full text-sm font-bold
+bg-blue-500 text-white
+hover:bg-blue-600
+active:scale-90
+transition-all duration-150 shadow-md">
+
+GET
+</a>
+        </div>
+
+        <!-- ITEM -->
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between card">
+
+            <div>
+                <h2 class="font-bold">Eevee Spotify</h2>
+                <p class="text-sm text-gray-400">Nghe nhạc kh QC.Tiêm bằng Trollfools</p>
+            </div>
+
+            <a href="https://www.mediafire.com/file/ox823ydkej3j7yt/EeveeSpotify_6.2_TrollFools.zip/file"
+class="px-4 py-1.5 rounded-full text-sm font-bold
+bg-blue-500 text-white
+hover:bg-blue-600
+active:scale-90
+transition-all duration-150 shadow-md">
+
+GET
+</a>
+
+        </div>
+        
+        <!-- ITEM -->
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between card">
+
+            <div>
+                <h2 class="font-bold">Glow Messenger</h2>
+                <p class="text-sm text-gray-400">No QC,Ẩn danh, tải video story.Tiêm bằng Trollfools</p>
+            </div>
+
+            <a href="https://www.mediafire.com/file/8t9vhqac6zf19lw/Flow_Messenger.zip/file"
+class="px-4 py-1.5 rounded-full text-sm font-bold
+bg-blue-500 text-white
+hover:bg-blue-600
+active:scale-90
+transition-all duration-150 shadow-md">
+
+GET
+</a>
+         
+        </div>
+
     </div>
 
-    <div class="w-full max-w-[1400px] mx-auto relative z-10 pb-20">
-        <main class="container mx-auto px-4 py-8">
-            
-            <div class="flex flex-col items-center justify-center text-center mb-10 animate-fade-down">
-                
-                <div class="inline-flex justify-center items-center bg-white/80 dark:bg-zinc-900/70 backdrop-blur-xl border border-gray-200 dark:border-zinc-800 rounded-full p-1.5 mb-8 shadow-lg gap-1 transition-colors duration-300">
-                    <a href="https://mrpewios.github.io/" class="px-4 py-2 rounded-full font-bold text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10 dark:hover:text-white transition-all">Trang chủ</a>
-                    <a href="https://mrpewios.github.io/donate.html" class="px-4 py-2 rounded-full font-bold text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10 dark:hover:text-white transition-all">Donate Admin</a>
-                    <a href="https://mrpewios.github.io/page.html" class="px-4 py-2 rounded-full font-bold text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10 dark:hover:text-white transition-all">Kho IPA</a>
-                    <button id="theme-toggle-btn" class="px-3 py-2 rounded-full font-bold text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10 dark:hover:text-white transition-all cursor-pointer">
-                        <i class="fas fa-sun" id="theme-icon"></i>
-                    </button>
-                </div>
-
-                <div class="relative group mb-6">
-                    <div class="absolute -inset-1 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-full opacity-0 dark:opacity-60 blur group-hover:opacity-100 transition duration-500"></div>
-                    <img src="https://mrpewios.github.io/avatar.webp" alt="Avatar" class="relative w-32 h-32 rounded-full object-cover border-4 border-cyan-400 bg-white dark:bg-black shadow-2xl group-hover:rotate-[360deg] transition-transform duration-700 ease-in-out">
-                </div>
-                
-                <h1 class="text-4xl font-extrabold tracking-tight mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 dark:from-cyan-400 dark:via-white dark:to-purple-400 animate-gradient-text drop-shadow-lg pb-1">
-                    Thư Viện MrPewiOS
-                </h1>
-                
-                <p class="mt-2 text-lg text-gray-700 dark:text-gray-300 font-medium max-w-2xl text-shadow">
-                    Kho cập nhật các tệp Deb, Dylib Việt Hóa & Mod mới nhất<br>
-                    <span class="text-sm opacity-80 font-normal">Hỗ trợ tiêm qua Trollfools và Esign trên thiết bị iOS.</span>
-                </p>
-            </div>
-
-            <div class="max-w-xl mx-auto mb-10 relative animate-fade-up">
-                <input type="text" id="search-box" placeholder="Tìm kiếm Tweak, Dylib..." 
-                    class="w-full py-3.5 px-5 rounded-full bg-white/80 dark:bg-zinc-900/60 border border-gray-200 dark:border-zinc-800 text-gray-900 dark:text-white placeholder-gray-500 outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all pl-12 backdrop-blur-md shadow-lg">
-                <i class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-gray-400"></i>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 max-w-[1400px] mx-auto pb-10" id="tweak-list">
-                
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://mrpewios.github.io/BHtiktokplus.png" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">ACTikTok</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Bổ sung các tính năng hữu ích cho Tiktok</p>
-                    <a href="https://www.mediafire.com/file/2zw909q0tcuryzx/ACTikTok.dylib.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/7bqoco.png" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">BeautyCam VIP</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Mở khoá tính năng VIP cho BeautyCam</p>
-                    <a href="https://www.mediafire.com/file/jcr0gdpk015jr1m/BeautyCam_Vip_New.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://mrpewios.github.io/BHtiktokplus.png" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">BHTikTok++</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Bổ sung tính năng cho Tiktok</p>
-                    <a href="https://www.mediafire.com/file/3pti6izxwp7tli9/bhtiktok%252B%252B.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/s68seh.jpg" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">BHTikTokVH</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Việt Hóa chức năng Bhtiktok++</p>
-                    <a href="https://www.mediafire.com/file/qjcau2l4vq8rtg4/BHTiktokVH.dylib/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://mrpewios.github.io/CapcutPro.png" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">Capcut Crack</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Mở khóa tính năng Pro cho Capcut</p>
-                    <a href="https://www.mediafire.com/file/kgbd7ay383ga5sv/CapcutCrack.dylib/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/00s24v.png" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">Documents Plus</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Mở khóa tính năng Plus cho Documents</p>
-                    <a href="https://www.mediafire.com/file/dt8z4oww53yn3ak/DocumentsCrack.dylib/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/a0s1l1.png" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">Flow for Messenger</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Bổ sung tính năng cho Messenger</p>
-                    <a href="https://www.mediafire.com/file/a8fkmyl04kveiff/Flow_Messenger.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/ggugit.webp" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">Glow for Facebook</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.3</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Bổ sung tính năng cho Facebook</p>
-                    <a href="https://www.mediafire.com/file/tt1j9uw6jlw93kz/Glow_Facebook_v1.3.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/83boka.avif" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">ImmortalizerJailed</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Chạy nền ứng dụng kể cả khi tắt màn</p>
-                    <a href="https://www.mediafire.com/file/eyfvvfdosaqg688/ImmortalizerJailed_V2.2.dylib/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/qwr0r5.webp" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">Instagram Rocket</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Bổ sung tính năng cho Instagram</p>
-                    <a href="https://www.mediafire.com/file/694pj3w7jh30ty1/Instagram_Rocket_3.8.32_TrollFools.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://mrpewios.github.io/iOSCleanPro.webp" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">iOSCleanProVH</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Việt Hóa iOSCleanPro</p>
-                    <a href="https://www.mediafire.com/file/g1n4mo4d6v2kckc/iOSCleanProVH.dylib/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/ql1zp2.webp" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">iScreen Vip</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Mở khoá tính năng VIP cho iScreen</p>
-                    <a href="https://www.mediafire.com/file/hr3nfi9ifougx58/iScreen_vip.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/vlldsn.jpg" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">Locket Gold</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Mở khoá tính năng Gold cho Locket</p>
-                    <a href="https://www.mediafire.com/file/r4gitf9782cccbe/locketgold_New_update.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/1zzv4j.jpg" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">Meitu Pro</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Mở khoá tính năng Pro cho Meitu</p>
-                    <a href="https://www.mediafire.com/file/sfqorjssgv71oyk/meitu_Crack.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/47qm0d.png" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">Messenger Fix iOS14</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v2.0.15</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Deb</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Sửa lỗi không nghe gọi được iOS14</p>
-                    <a href="https://www.mediafire.com/file/fg30q79yzs0n534/MessengerFix14.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/mv9yb7.png" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">NGL Pro</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Mở khoá tính năng Pro cho NGL</p>
-                    <a href="https://www.mediafire.com/file/1kvjrjs2m8a9lx1/NGLPro.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/cs1qzw.png" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">Picsart Gold</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Mở khoá tính năng Gold cho Picsart</p>
-                    <a href="https://www.mediafire.com/file/47t8kpwpr5dxget/PicsartGold.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/qmcm41.jpg" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">Quark VPN Vip</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Mở khoá tính năng Vip cho Quark VPN</p>
-                    <a href="https://www.mediafire.com/file/d9yl8p65narc4io/QuarkVPNPatch.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/vt36gn.png" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">Satella</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Miễn phí thanh toán App/Game</p>
-                    <a href="https://www.mediafire.com/file/uxnbfq0c7v813kt/SatellaJailed.dylib/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/x7k2nh.png" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">SmPro Crack</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Mở khoá tính năng cho SMPro</p>
-                    <a href="https://www.mediafire.com/file/w613rjtw0fl7o0j/smpro.dylib/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/brv7qo.png" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">Snow Vip</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Mở khoá tính năng VIP cho Snow AI</p>
-                    <a href="https://www.mediafire.com/file/xklxagdd7alv0xf/SNOW_AI_VIP.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://mrpewios.github.io/trollstore.webp" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">Trollstore Việt Hoá</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Thêm ngôn ngữ Tiếng Việt cho TRollstore gốc</p>
-                    <a href="https://www.mediafire.com/file/e6iwwr4d67d3qgm/Trollstore_VietHoa.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/feytmm.png" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">TikTok Noads</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Ẩn logo qc sự kiện trên TikTok</p>
-                    <a href="https://www.mediafire.com/file/arz6l8qsugwn9x7/TiktokNoAds_mall.dylib/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/gmm8kl.png" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">Timemark Camera</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.7.1</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Xoá logo khi chụp ảnh trong Timemark Camera</p>
-                    <a href="https://www.mediafire.com/file/cv48o9qa2vhqjyz/TimemarknoWatermark.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/5n77l1.jpg" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">TGExtra</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.7.1</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Bổ sung nhiều chức năng cho Telegram, Swiftgram và Turrit</p>
-                    <a href="https://www.mediafire.com/file/4rv7g5wl9q5d8s2/TGExtra_v1.7.1_VH.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/ph747a.png" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">TrueCaller VIP</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v2.0.15</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Deb</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Mở khoá tính năng VIP cho TrueCaller</p>
-                    <a href="https://www.mediafire.com/file/qts51rpoxvl4i58/truecall_unlock.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/kczbwr" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">WALegacy</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Sửa lỗi không login được whatsApp trên iOS14</p>
-                    <a href="https://www.mediafire.com/file/6r8hjgttx8a3i81/WALegacy.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/dhe9wv.jpg" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">Widgy Unlock</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Mở khoá tính năng cho Widgy</p>
-                    <a href="https://www.mediafire.com/file/rqj2e37mdpue1gu/widgy.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/4bwut0.png" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">Wink Vip</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Mở khoá tính năng Vip cho Wink</p>
-                    <a href="https://www.mediafire.com/file/1btu6udlzs8lw4o/WinkVIP.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/69e3h3.jpg" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">Xingtu Pro</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Mở khoá tính năng Pro cho Xingtu</p>
-                    <a href="https://www.mediafire.com/file/3vykfmt4kl8tiol/XingtuPro.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/xhhtgj.png" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">Youtube Plus</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Bổ sung nhiều tính năng cho Youtube</p>
-                    <a href="https://www.mediafire.com/file/pqr699kf26zg8qt/Youtube_Plus_5.2b3.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-                <div class="tweak-item flex flex-col p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md hover:-translate-y-1 hover:bg-white dark:hover:bg-zinc-800/60 hover:shadow-lg transition-all duration-300 group">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://files.catbox.moe/zsezis.avif" class="w-14 h-14 rounded-xl shadow-sm flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors truncate">YTMusic Prenium</h3>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">v1.0</span>
-                                <span class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">Dylib</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">Mở khoá Premium cho Youtube Music</p>
-                    <a href="https://www.mediafire.com/file/78sj1aj6q0qzodq/YTMusic_Premium.zip/file" class="mt-auto w-full py-2.5 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 text-gray-700 dark:text-gray-200 font-bold text-sm flex justify-center items-center gap-2 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all shadow-sm" download>
-                        <i class="fas fa-cloud-download-alt"></i> Tải về
-                    </a>
-                </div>
-
-            </div>
-            
-            <div class="mt-16 text-center text-sm pb-8 border-t border-gray-200 dark:border-white/5 pt-8">
-                <p class="text-gray-500 dark:text-gray-400 font-bold">Copyright © 2026 - 2030 QuangGiap • MrPewiOS Repo👑</p>
-            </div>
-        </main>
+    <!-- BACK -->
+    <div class="text-center mt-8">
+        <a href="https://mrpewios.github.io"
+        class="text-gray-400 text-sm hover:text-white transition">
+        ← Quay lại trang chủ
+        </a>
     </div>
 
-    <script>
-        // 1. Logic Tìm kiếm
-        document.getElementById('search-box').addEventListener('keyup', function() {
-            let filter = this.value.toLowerCase();
-            let items = document.querySelectorAll('.tweak-item');
-            
-            items.forEach(item => {
-                let text = item.innerText.toLowerCase();
-                if (text.includes(filter)) {
-                    item.style.display = "flex"; 
-                } else {
-                    item.style.display = "none";
-                }
-            });
-        });
+</div>
 
-        // 2. Logic Theme
-        const themeToggleBtn = document.getElementById('theme-toggle-btn');
-        const themeIcon = document.getElementById('theme-icon');
-        const body = document.body;
-        const currentTheme = localStorage.getItem('theme') || 'dark';
-        
-        // Hàm set theme
-        function setTheme(theme) {
-            if (theme === 'dark') {
-                document.documentElement.classList.add('dark');
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            } else {
-                document.documentElement.classList.remove('dark');
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            }
-            localStorage.setItem('theme', theme);
-        }
-
-        // Khởi tạo theme
-        setTheme(currentTheme);
-        
-        // Sự kiện click
-        themeToggleBtn.addEventListener('click', () => {
-            const isDark = document.documentElement.classList.contains('dark');
-            setTheme(isDark ? 'light' : 'dark');
-        });
-    </script>
 </body>
 </html>
