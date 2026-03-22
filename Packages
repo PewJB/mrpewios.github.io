@@ -1,0 +1,48 @@
+Package: com.yourepo.pewpew.vcamaudiorootless_1.0-3_iphoneos-arm64
+Architecture: iphoneos-arm64
+Version: 1.0-3
+Section: Tweak
+Maintainer: Little34306
+Installed-Size: 408
+Filename: ./debs/com.yourepo.pewpew.vcamaudiorootless_1.0-3_iphoneos-arm64.deb
+Size: 24834
+MD5sum: d189b659a4c0ffa04b74c14aafc135f5
+SHA1: c81198665449d5c70064c17e4f798eb3569ea6c9
+SHA256: a1d8b97a42249e314e694f6f952f226cd437a8fefd773253431fd69f27b982d0
+SHA512: ba707bfda3dd21a2b4a330024e7f86b15335beea3e09233b68867da3588a61449a1468644e35b9b7f71541b8d3e0138ddc2d189bd42fd2f35aa4fa2b29d3b541
+Description: Vcam - Tweak chèn video vào camera gốc
+ Cho phép bạn chèn video từ thư viện vào khung hình camera
+ như thể bạn đang quay video thật.
+ .
+ Tính năng chính:
+   • Chèn video vào camera mặc định
+   • Hỗ trợ iOS 14.0 - 16.6.1 (rootless,roothide,rootful)
+   • Tương thích Dopamine
+   • Dễ dàng chọn video từ thư viện
+ .
+ Hướng dẫn:
+   1. Cài đặt tweak
+   2. Ấn + - → Chọn Select Video
+   3. Chọn video muốn chèn
+   4. Mở camera và tận hưởng video mà bạn vừa cài
+Tag: role::tweak, purpose::video, purpose::camera, compatible::rootless, compatible::ios14, compatible::ios15, compatible::ios16
+Name: VcamiOS (Rootless)
+Author: Little34306
+
+Package: com.yourepo.pewrepo.cydiainstaller_1.1.36-4_iphoneos-arm64
+Architecture: iphoneos-arm64
+Version: 1.1.36-4
+Section: Tweak
+Maintainer: Jay Freeman
+Installed-Size: 1258291
+Filename: ./debs/com.yourepo.pewrepo.cydiainstaller_1.1.36-4_iphoneos-arm64.deb
+Size: 1200000
+MD5sum: 31c6d2bd6196355be3b16cba60eac414
+SHA1: f3a056e221319202c8de11ce3699edabea175e4e
+SHA256: c5f48aa01521233bfc86bd32e22012b3070260c30a4393cad8a154cc037bb1f0
+SHA512: 925890fb4ca4586e4f9cf829b862f370c4842b71f147db2c4254750f4ab6e2c84c7e3ea1c345b942a0959f2aaeef83e281d37d857c5d1910c3c4baeb698c74
+Description: Công cụ cài đặt Cydia cho iOS đã jailbreak
+ Package này sẽ cài Cydia.app và các thành phần cần thiết lên thiết bị.(Không hỗ trợ Roothide và Rootless)
+Tag: Tag: cydia::installer, role::cydia, purpose::core
+Name: Cydia Installer (Rootful)
+Author: Jay Freeman
