@@ -1,80 +1,17 @@
-import json
-import os
-
-class SileoFeatured:
-    def __init__(self):
-        self.data = {
-            "class": "FeaturedBannersView",
-            "itemSize": "{260, 145}",
-            "itemCornerRadius": 10,
-            "banners": []
+{
+    "class": "FeaturedBannersView",
+    "itemSize": "{260, 145}",
+    "itemCornerRadius": 10,
+    "banners": [
+        {
+            "title": "MrPewiOS Repo",
+            "package": "com.pewpew.vcamaudiorootless",
+            "url": "https://mrpewios.github.io/coverimage/mrpewiosrepo.png"
+        },
+        {
+            "title": "Việt Nam Number 1",
+            "package": "com.foxfort.vizage_1.0.2_iphone-arm64e",
+            "url": "https://mrpewios.github.io/converimage/vietnam.png"
         }
-    
-    def add_banner(self, title, package_id, image_url):
-        """Thêm một banner mới vào danh sách"""
-        banner = {
-            "title": title,
-            "package": package_id,
-            "url": image_url
-        }
-        self.data["banners"].append(banner)
-        print(f"[+] Đã thêm banner: {title}")
-    
-    def remove_banner(self, package_id):
-        """Xóa banner theo package ID"""
-        self.data["banners"] = [
-            b for b in self.data["banners"] 
-            if b["package"] != package_id
-        ]
-        print(f"[-] Đã xóa banner có ID: {package_id}")
-    
-    def save(self, filename="sileo-featured.json"):
-        """Lưu ra file JSON với định dạng đẹp"""
-        try:
-            with open(filename, 'w', encoding='utf-8') as f:
-                json.dump(self.data, f, indent=4, ensure_ascii=False)
-            print(f"[✓] File '{filename}' đã được tạo thành công!")
-            
-            # Kiểm tra lỗi JSON
-            with open(filename, 'r', encoding='utf-8') as f:
-                test = json.load(f)
-            print("[✓] JSON hợp lệ, sẵn sàng upload lên repo!")
-            
-        except Exception as e:
-            print(f"[✗] Lỗi khi lưu file: {e}")
-    
-    def load_existing(self, filename="sileo-featured.json"):
-        """Load file có sẵn để chỉnh sửa"""
-        try:
-            with open(filename, 'r', encoding='utf-8') as f:
-                self.data = json.load(f)
-            print(f"[✓] Đã load file '{filename}' với {len(self.data['banners'])} banner")
-        except FileNotFoundError:
-            print(f"[!] Chưa có file '{filename}', sẽ tạo mới")
-        except json.JSONDecodeError:
-            print(f"[✗] File '{filename}' bị lỗi JSON, cần sửa lại")
-
-# ========== DEMO SỬ DỤNG ==========
-if __name__ == "__main__":
-    sf = SileoFeatured()
-    
-    # Ví dụ 1: Tạo file mới với 2 banner
-    sf.add_banner(
-        title="MrPewiOS Repo",
-        package_id="com.pewpew.vcamaudiorootless",
-        image_url="https://mrpewios.github.io/coverimage/mrpewiosrepo.png"
-    )
-    
-    sf.add_banner(
-        title="Việt Nam Number 1",
-        package_id="com.foxfort.vizage_1.0.2_iphone-arm64e",
-        image_url="https://mrpewios.github.io/converimage/vietnam.png"
-    )
-    
-    sf.save()
-    
-    # Ví dụ 2: Load file cũ để sửa
-    # sf2 = SileoFeatured()
-    # sf2.load_existing("sileo-featured.json")
-    # sf2.add_banner("Banner Mới", "com.xxx.yyy", "https://...")
-    # sf2.save()
+    ]
+}
