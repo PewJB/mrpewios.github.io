@@ -6,7 +6,7 @@ Maintainer: Little34306
 Installed-Size: 408
 Filename: ./debs/com.yourepo.pewpew.vcamaudiorootless_1.0-3_iphoneos-arm64.deb
 Size: 64599
-MD5sum: d189b659a4c0ffa04b74c14aafc135f5
+MD5sum: 30693ba0b9dcb71d56e2f6a73eec6358
 SHA1: c81198665449d5c70064c17e4f798eb3569ea6c9
 SHA256: a1d8b97a42249e314e694f6f952f226cd437a8fefd773253431fd69f27b982d0
 SHA512: ba707bfda3dd21a2b4a330024e7f86b15335beea3e09233b68867da3588a61449a1468644e35b9b7f71541b8d3e0138ddc2d189bd42fd2f35aa4fa2b29d3b541
@@ -64,3 +64,20 @@ Không Hỗ Trợ Roothide, Bootstrap, Nathanlr
 Tag: purpose::unlock, compatible::ios14-ios17
 Name: Vizage (Roothide)
 Author: FoxFort
+
+Package: cydia-1-1-36-4-iphoneos-arm
+Architecture: iphoneos-arm
+Version: 1.1.36-4
+Section: Tweak
+Maintainer: Jay Freeman
+Installed-Size: 1333614
+Filename: https://drive.google.com/uc?export=download&id=1I66paqjtmFQTiGWvPKu2AjDWXiUgdoQh
+Size: 1335296
+MD5sum: 811c1642f40c858adbc2e1eada205eb7
+SHA1: 78d6f2b2daabff270daa28ad60c4ca751508bd90
+SHA256: 49790811ed5bf00dc09de5ffb8e34f7ea2967fca498d8dda1f4a4752fdf2c53f
+SHA512: ac469e61e0aad6c168b2d451211f31720120091206c0d42459091a293ea3a4fde9ae163a864547e9aedca07ebeccd42e9c83d48de03a8abf8b2628f3ec7e72f1
+Description: Cydia Cho iPhone Jailbreak Rootful ( Cydia For iPhone Jailbreak Rootful ). Không Hỗ Trợ Rootless,Roothide ( Not Support Rootless,Roothide )
+Tag: cydia::rootful compatible_min::ios=15.0, compatible_max::ios=15.8.4
+Name: Cydia Installer (Rootful)
+Author: Jay Freeman
