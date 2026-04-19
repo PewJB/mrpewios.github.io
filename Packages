@@ -32,17 +32,35 @@ Author: Little34306
 Package: com.yourepo.pewrepo.cydiainstaller_1.1.36-4_iphoneos-arm64
 Architecture: iphoneos-arm64
 Version: 1.1.36-4
-Section: System
+Section: Tweak
 Maintainer: Jay Freeman
 Installed-Size: 1258291
 Filename: ./debs/com.yourepo.pewrepo.cydiainstaller_1.1.36-4_iphoneos-arm64.deb
-Size: 1200000
+Size: 1241060
 MD5sum: 31c6d2bd6196355be3b16cba60eac414
 SHA1: f3a056e221319202c8de11ce3699edabea175e4e
 SHA256: c5f48aa01521233bfc86bd32e22012b3070260c30a4393cad8a154cc037bb1f0
 SHA512: 925890fb4ca4586e4f9cf829b862f370c4842b71f147db2c4254750f4ab6e2c84c7e3ea1c345b942a0959f2aaeef83e281d37d857c5d1910c3c4baeb698c74
 Description: Công cụ cài đặt Cydia cho iOS đã jailbreak
  Package này sẽ cài Cydia.app và các thành phần cần thiết lên thiết bị.(Không hỗ trợ Roothide và Rootless)
-Tag: Tag: cydia::installer, role::cydia, purpose::core
+Tag: cydia::installer, role::cydia, purpose::core
 Name: Cydia Installer (Rootful)
 Author: Jay Freeman
+
+Package: com.foxfort.vizage_1.0.2_iphone-arm64e
+Architecture: iphoneos-arm64e
+Version: 1.0.2
+Section: Tweak
+Maintainer: FoxFort
+Installed-Size: 35022438
+Filename: ./debs/com.foxfort.vizage_1.0.2_iphone-arm64e.deb
+Size: 35094528
+MD5sum: 71216fab5700826e5b76bba7655f35a3
+SHA1: 05b8b484211a081777e687fd734e0307592ccbf3
+SHA256:06a1458782a9ea3c62a606c288d3f7322d0457281a60fb353a41fdc4723473ce 
+SHA512: 1e4ec0b97f9eb490fd1b9b3dc267996017a738a8499e62d273ffc5abb1db7b83ef73b282ca918be139583d8020afc706668678347d36ad26fd4f738b4e28fb25
+Description: Fake FaceID Cho iPhone thấp. Hỗ Trợ Máy Từ A11 Trở Về Trước.
+Không Hỗ Trợ Roothide, Bootstrap, Nathanlr
+Tag: purpose::unlock, compatible::ios14-ios17
+Name: Vizage (Roothide)
+Author: FoxFort
