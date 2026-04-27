@@ -28,12 +28,14 @@ building() {
     printf '{"Name":"%s","Version":"%s","Section":"%s","Package":"%s","Author":"%s","Depends":"%s","Descript":"%s","Arch":"%s","Size":"%s","Time":"%s000"},\n' \
       "$name" "$vers" "$section" "$pkg" "$author" "$depends" "$description" "$arch" "$size" "$time" >> all.pkgs
     
-    # Xử lý compatity
-    leng=${#pkg}
-    leng=$((leng + 1))
-    exists=$(echo "$compatity" | grep "^$pkg " | cut -c "$leng"- | tr -d "\n\r")
+    # Xử lý compatity - SỬA LỖI CẮT CHUỖI
+    if [[ -n "$compatity" ]]; then
+      exists=$(echo "$compatity" | grep "^$pkg " | sed "s/^$pkg //" | tr -d "\n\r")
+    else
+      exists=""
+    fi
     
-    if [[ -z $exists ]]; then
+    if [[ -z "$exists" ]]; then
       echo "$pkg ($name)? "
       read -r tmp
       echo "$pkg $tmp" >> compatity.txt
