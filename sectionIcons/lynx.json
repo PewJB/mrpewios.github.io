@@ -1,6 +1,6 @@
 {
 "minVersion":"0.1",
-"headerImage":"https://jtisvn.github.io/coverimage/mrpewiosrepo.png",
+"headerImage":"https://mrpewios.github.io/coverimage/mrpewiosrepo.png",
 "tintColor":"#6633FF",
 "tabs":[
 {
@@ -10,19 +10,19 @@
 "class":"DepictionScreenshotsView",
 "screenshots":[
 {
-"url":"https://jtisvn.github.io/infodeb/Lynx/Screenshots/1.png",
+"url":"https://mrpewios.github.io/infodeb/Lynx2/Screenshot/1.png",
 "accessibilityText":"Screenshot"
 },
 {
-"url":"https://jtisvn.github.io/infodeb/Lynx/Screenshots/2.png",
+"url":"https://mrpewios.github.io/infodeb/Lynx2/Screenshot/2.png",
 "accessibilityText":"Screenshot"
 },
 {
-"url":"https://jtisvn.github.io/infodeb/Lynx/Screenshots/3.png",
+"url":"https://mrpewios.github.io/infodeb/Lynx2/Screenshot/3.png",
 "accessibilityText":"Screenshot"
 },
 {
-"url":"https://jtisvn.github.io/infodeb/Lynx/Screenshots/4.png",
+"url":"https://mrpewios.github.io/infodeb/Lynx2/Screenshot/4.png",
 "accessibilityText":"Screenshot"
 }
 ],
@@ -91,7 +91,7 @@
 },
 {
 "class": "DepictionLabelView",
-"text": "14/9/2025",
+"text": "30/4/2026",
 "fontWeight": "semibold",
 "fontSize": 16,
 "usePadding": false
