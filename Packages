@@ -12,7 +12,7 @@ SHA1: 9cc0b93614468a539a60c95029bc3fd4d1c83ead
 SHA256: 95ec1c40886db969da9526defbf32ab5cf8c3b16c4995ddaf6eecc3320997db6
 SHA512: a6e8df111576222178dc0b016bce41dc7b74a8a6d630e00f8d34798dea6c19332ecee2999344136fabf6144988b84e034958ad8bfdb3b6fba7940291734f53e8
 Description: Tùy chỉnh tối ưu cho thiết bị iOS 14, 15 & 16
-SileoDepiction: https://jtisvn.github.io/sileodepictions/lynx.json
-Icon: https://Jtisvn.github.io/sectionIcons/lynx.png
+SileoDepiction: https://mrpewios.github.io/sileodepictions/lynx.json
+Icon: https://mrpewios.github.io/icon/icondebs/lynx.png
 Name: Lynx 2(Rootless)
 Author: MTAC
