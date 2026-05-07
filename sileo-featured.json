@@ -5,12 +5,12 @@
     "banners": [
         {
             "title": "MrPewiOS Repo",
-            "package": "com.pewpew.vcamaudiorootless",
+            "package": "",
             "url": "https://mrpewios.github.io/coverimage/mrpewiosrepo.png"
         },
         {
             "title": "Việt Nam Number 1",
-            "package": "com.foxfort.vizage",
+            "package": "",
             "url": "https://mrpewios.github.io/converimage/vietnam.png"
         }
     ]
